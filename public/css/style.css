@@ -6,11 +6,7 @@ body {
   -o-background-size: cover;
   background-size: cover;
 }
-.jumbotron {
-    position: relative;
-    background-size: cover;
-    overflow: hidden;
-}
+
 .slider .indicators .indicator-item {
   background-color: #666666;
   border: 3px solid #ffffff;
