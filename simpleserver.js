@@ -31,8 +31,13 @@ app.post('/keywords', function(req, res) {
         unix: newDate.format("X"),
         natural: newDate.format("MMMM D, YYYY")
       })
-
+    }else {
+      res.json({
+        unix: null,
+        natural: null
+      });
     }
+
   };
 });
 app.get('/:datestring', function(req, res) {
