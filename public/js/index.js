@@ -6,6 +6,7 @@ $scope.getIt=function(){
    url: 'http://localhost:3000/keywords',
    data: { date: $scope.keywords }
   }
+  
   $http(req).then(
     function(res){
     $scope.tada=res.data;
