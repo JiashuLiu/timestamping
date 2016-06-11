@@ -1,15 +1,18 @@
 var app = angular.module('myApp', []);
-app.config(function( $locationProvider) {
-  $locationProvider.html5Mode({
-    enabled: true,
-    requireBase: false
-  });
-
-});
-app.controller('SomeController', ['$scope', '$location','$window', function($scope, $location,$window) {
+app.controller('MainController', ['$scope', '$http', function($scope,$http) {
 $scope.getIt=function(){
- var pathto="/"+$scope.keywords
-$location.path(pathto);
-$window.location.reload();
+  var req = {
+   method: 'POST',
+   url: 'http://localhost:3000/keywords',
+   data: { date: $scope.keywords }
+  }
+
+  $http(req).then(
+    function(res){
+    $scope.tada=res.data;
+  },
+   function(res){
+    console.log("error");
+  });
 };
 }]);
